@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# Direct access for existing files/folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [QSA,L]
