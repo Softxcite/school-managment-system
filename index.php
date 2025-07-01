@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/./vendor/autoload.php';
 
 use App\Core\Config;
 use App\Core\Encryptor;
@@ -10,9 +10,10 @@ Config::load();
 Encryptor::init();
 
 $encryptedUrl = $_GET['q'] ?? '';
-
+print_r($encryptedUrl);
+die();
 if (!$encryptedUrl) {
-    die("No route specified!");
+    $encryptedUrl = Encryptor::encrypt('home/index');
 }
 
 $router = new Router();
